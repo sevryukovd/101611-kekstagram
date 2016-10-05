@@ -1,8 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
 * Студент: [Дмитрий Севрюков](https://up.htmlacademy.ru/javascript/7/user/101611).
-* Наставник: `Алексей Хапов` 
-(https://htmlacademy.ru/profile/id118459).
+* Наставник: [Алексей Хапов](https://htmlacademy.ru/profile/id118459).
 
 ---
 
