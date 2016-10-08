@@ -1,18 +1,16 @@
 'use strict';
-
-var a;
-var b;
+var result
 
 function getMessage(a, b) {
   if (typeof (a) === 'boolean') {
     if (a) {
-      return ('Переданное GIF-изображение анимировано и содержит ' + b + ' кадров');
+      return result = 'Переданное GIF-изображение анимировано и содержит ' + b + ' кадров';
     } else {
-      return ("Переданное GIF-изображение не анимировано");
+      return result = 'Переданное GIF-изображение не анимировано';
     }
 
   } else if (typeof (a) === 'number') {
-    return ('Переданное SVG-изображение содержит ' + a + ' объектов и ' + b * 4 + ' атрибутов');
+    return result = 'Переданное SVG-изображение содержит ' + a + ' объектов и ' + b * 4 + ' атрибутов';
 
   } else if (Array.isArray(a) && Array.isArray(b)) {
     var artifactsSquare = 0;
@@ -20,16 +18,15 @@ function getMessage(a, b) {
     for (var i = 0; i < a.length; i++) {
       artifactsSquare += a[i] * b[i];
     }
-    return 'Общая площадь артефактов сжатия: ' + artifactsSquare + ' пикселей';
+    return result = 'Общая площадь артефактов сжатия: ' + artifactsSquare + ' пикселей';
   } else if (Array.isArray(a)) {
     var amountOfRedPoints = 0;
     for (var i = 0; i < a.length; i++) {
       amountOfRedPoints += a[i]
     }
-    return ('Количество красных точек во всех строчках изображения:' + amountOfRedPoints);
+    return result = 'Количество красных точек во всех строчках изображения:' + amountOfRedPoints;
 
-  }
-  else {
-   return ('Переданы некорректные данные');
+  } else {
+    return result = 'Переданы некорректные данные';
   }
 };
