@@ -2,7 +2,7 @@
 
 
 function getMessage(a, b) {
-  var result
+  var result;
   if (typeof (a) === 'boolean') {
     if (a) {
       result = 'Переданное GIF-изображение анимировано и содержит ' + b + ' кадров';
