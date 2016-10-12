@@ -89,14 +89,14 @@
       // чего-либо с другой обводкой.
 
       // Толщина линии.
-      this._ctx.lineWidth = 6;
+      //this._ctx.lineWidth = 6;
       // Цвет обводки.
-      this._ctx.strokeStyle = '#ffe753';
+      //this._ctx.strokeStyle = '#ffe753';
       // Размер штрихов. Первый элемент массива задает длину штриха, второй
       // расстояние между соседними штрихами.
-      this._ctx.setLineDash([15, 10]);
+      //this._ctx.setLineDash([15, 10]);
       // Смещение первого штриха от начала линии.
-      this._ctx.lineDashOffset = 7;
+      //this._ctx.lineDashOffset = 7;
 
       // Сохранение состояния канваса.
       this._ctx.save();
@@ -131,7 +131,7 @@
       var xPlusBigSquare = this._container.width / 2;
       var yMinusBigSquare = -this._container.height / 2;
       var MinusSmallSquare = (-this._resizeConstraint.side / 2) - this._ctx.lineWidth;
-      var PlusSmallSquare = (this._resizeConstraint.side / 2) - this._ctx.lineWidth;
+      var PlusSmallSquare = (this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2;
 
       this._ctx.moveTo(xMinusBigSquare, yPlusBigSquare);
       this._ctx.lineTo(xPlusBigSquare, yPlusBigSquare);
@@ -143,6 +143,8 @@
       this._ctx.lineTo(PlusSmallSquare, PlusSmallSquare);
       this._ctx.lineTo(MinusSmallSquare, PlusSmallSquare);
 
+
+
       this._ctx.closePath();
       this._ctx.fill('evenodd');
 
@@ -151,6 +153,36 @@
       this._ctx.font = '15px Arial';
       this._ctx.textAlign = 'center';
       this._ctx.fillText(this._image.naturalWidth + ' x ' + this._image.naturalHeight, 0, -this._resizeConstraint.side / 2 - 10);
+
+      // Отрисовка рамки кадрирования точками
+
+      var i;
+      var dotRadius = 3;
+      var dotStep = 10;
+      var dotStart = (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2;
+      var dotEnd = (this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2;
+      var ctx = this._ctx;
+
+      for (i = dotStart; i <= dotEnd; i += dotStep) {
+        dotBorder(i, dotStart);
+        dotBorder(dotStart, i);
+      }
+
+      for (i = dotEnd; i >= dotStart + dotRadius; i -= dotStep) {
+        dotBorder(i, dotEnd);
+        dotBorder(dotEnd, i);
+      }
+
+      function dotBorder(x, y) {
+        ctx.beginPath();
+        ctx.arc(x, y, dotRadius, 0, 2 * Math.PI);
+        ctx.fillStyle = '#ffe753';
+        ctx.fill();
+        ctx.closePath();
+      }
+
+
+
 
 
       // Восстановление состояния канваса, которое было до вызова ctx.save
