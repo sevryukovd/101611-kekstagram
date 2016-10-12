@@ -128,20 +128,20 @@
 
       var xMinusBigSquare = -this._container.width / 2;
       var yPlusBigSquare = this._container.height / 2;
-      var xPlusBigSquere = this._container.width / 2;
-      var yMinusBigSquere = -this._container.height / 2;
-      var MinusSmallSquere = (-this._resizeConstraint.side / 2) - this._ctx.lineWidth;
-      var PlusSmallSquere = (this._resizeConstraint.side / 2) - this._ctx.lineWidth;
+      var xPlusBigSquare = this._container.width / 2;
+      var yMinusBigSquare = -this._container.height / 2;
+      var MinusSmallSquare = (-this._resizeConstraint.side / 2) - this._ctx.lineWidth;
+      var PlusSmallSquare = (this._resizeConstraint.side / 2) - this._ctx.lineWidth;
 
       this._ctx.moveTo(xMinusBigSquare, yPlusBigSquare);
-      this._ctx.lineTo(xPlusBigSquere, yPlusBigSquare);
-      this._ctx.lineTo(xPlusBigSquere, yMinusBigSquere);
-      this._ctx.lineTo(xMinusBigSquare, yMinusBigSquere);
+      this._ctx.lineTo(xPlusBigSquare, yPlusBigSquare);
+      this._ctx.lineTo(xPlusBigSquare, yMinusBigSquare);
+      this._ctx.lineTo(xMinusBigSquare, yMinusBigSquare);
 
-      this._ctx.moveTo(MinusSmallSquere, MinusSmallSquere);
-      this._ctx.lineTo(PlusSmallSquere, MinusSmallSquere);
-      this._ctx.lineTo(PlusSmallSquere, PlusSmallSquere);
-      this._ctx.lineTo(MinusSmallSquere, PlusSmallSquere);
+      this._ctx.moveTo(MinusSmallSquare, MinusSmallSquare);
+      this._ctx.lineTo(PlusSmallSquare, MinusSmallSquare);
+      this._ctx.lineTo(PlusSmallSquare, PlusSmallSquare);
+      this._ctx.lineTo(MinusSmallSquare, PlusSmallSquare);
 
       this._ctx.closePath();
       this._ctx.fill('evenodd');
