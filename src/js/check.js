@@ -23,7 +23,7 @@ function getMessage(a, b) {
   } else if (Array.isArray(a)) {
     var amountOfRedPoints = 0;
     for (var i = 0; i < a.length; i++) {
-      amountOfRedPoints += a[i]
+      amountOfRedPoints += a[i];
     }
     result = 'Количество красных точек во всех строчках изображения:' + amountOfRedPoints;
 
@@ -31,4 +31,4 @@ function getMessage(a, b) {
     result = 'Переданы некорректные данные';
   }
   return result;
-};
+}
