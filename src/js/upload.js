@@ -84,8 +84,8 @@
     resizeY.min = 0;
     resizeSide.min = 0;
 
-    var sumSizeX = resizeX.value + (resizeSide.value);
-    var sumSizeY = resizeY.value + (resizeSide.value);
+    var sumSizeX = resizeX.value + resizeSide.value;
+    var sumSizeY = resizeY.value + resizeSide.value;
     if (sumSizeX <= currentResizer._image.naturalWidth && sumSizeY <= currentResizer._image.naturalHeight) {
       buttonFwd.disabled = false;
       return true;
