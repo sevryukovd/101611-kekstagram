@@ -79,6 +79,7 @@
   var resizeSide = document.querySelector('#resize-size');
   var buttonFwd = document.querySelector('#resize-fwd');
 
+
   var resizeFormIsValid = function() {
     resizeX.min = 0;
     resizeY.min = 0;
@@ -86,13 +87,8 @@
 
     var sumSizeX = resizeX.value + resizeSide.value;
     var sumSizeY = resizeY.value + resizeSide.value;
-    if (sumSizeX <= currentResizer._image.naturalWidth && sumSizeY <= currentResizer._image.naturalHeight) {
-      buttonFwd.disabled = false;
-      return true;
-    } else {
-      buttonFwd.disabled = true;
-      return false;
-    }
+    buttonFwd.disabled = sumSizeX > currentResizer._image.naturalWidth || sumSizeY > currentResizer._image.naturalHeight;
+    return true;
   };
 
 
