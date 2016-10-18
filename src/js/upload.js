@@ -87,7 +87,7 @@
 
     var sumSizeX = +resizeX.value + (+resizeSide.value);
     var sumSizeY = +resizeY.value + (+resizeSide.value);
-    var checkSizeForm = sumSizeX > currentResizer._image.naturalWidth && sumSizeY > currentResizer._image.naturalHeight;
+    var checkSizeForm = sumSizeX > currentResizer._image.naturalWidth || sumSizeY > currentResizer._image.naturalHeight;
     buttonFwd.disabled = checkSizeForm;
     return checkSizeForm;
   };
