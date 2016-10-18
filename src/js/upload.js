@@ -76,29 +76,38 @@
   // Валидации формы кадрирования изображения
 
   var resizeFormIsValid = function() {
-	var resizeX = document.querySelector('#resize-x');
+    var resizeX = document.querySelector('#resize-x');
     var resizeY = document.querySelector('#resize-y');
     var resizeSide = document.querySelector('#resize-size');
+    var buttonFwd = document.querySelector('#resize-fwd');
 
     resizeX.min = 0;
     resizeY.min = 0;
     resizeSide.min = 0;
 
-	resizeX.max = currentResizer._image.naturalWidth;
-    resizeY.max = currentResizer._image.naturalHeight;
-	resizeSide.max = currentResizer._image.naturalWidth;
-
-	var sumSizeX = +resizeX.value + (+resizeSide.value);
-	var sumSizeY = +resizeY.value + (+resizeSide.value);
-	if (sumSizeX <= currentResizer._image.naturalWidth && sumSizeY <= currentResizer._image.naturalHeight) {
-
-    return true;
-  } else {
-    return false;
-  }
+    var sumSizeX = +resizeX.value + (+resizeSide.value);
+    var sumSizeY = +resizeY.value + (+resizeSide.value);
+    if (sumSizeX <= currentResizer._image.naturalWidth && sumSizeY <= currentResizer._image.naturalHeight) {
+      buttonFwd.disabled = false;
+      return true;
+    } else {
+      buttonFwd.disabled = true;
+      return false;
+    }
   };
 
 
+  resizeX.oninput = function() {
+    resizeFormIsValid();
+  };
+
+  resizeY.oninput = function() {
+    resizeFormIsValid();
+  };
+
+  resizeSide.oninput = function() {
+    resizeFormIsValid();
+  };
 
 
   /**
