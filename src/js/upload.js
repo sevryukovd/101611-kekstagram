@@ -71,9 +71,44 @@
    * Проверяет, валидны ли данные, в форме кадрирования.
    * @return {boolean}
    */
+
+
+  // Валидации формы кадрирования изображения
+
   var resizeFormIsValid = function() {
+	var resizeX = document.querySelector('#resize-x');
+    var resizeY = document.querySelector('#resize-y');
+    var resizeSide = document.querySelector('#resize-size');
+
+    resizeX.min = 0;
+    resizeY.min = 0;
+    resizeSide.min = 0;
+
+	resizeX.max = currentResizer._image.naturalWidth;
+    resizeY.max = currentResizer._image.naturalHeight;
+	resizeSide.max = currentResizer._image.naturalWidth;
+
+	var sumSizeX = +resizeX.value + (+resizeSide.value);
+	var sumSizeY = +resizeY.value + (+resizeSide.value);
+	if (sumSizeX <= currentResizer._image.naturalWidth && sumSizeY <= currentResizer._image.naturalHeight) {
+
     return true;
+  } else {
+    return false;
+  }
   };
+
+  var buttonResizeFwd = document.querySelector('#resize-fwd');
+  buttonResizeFwd.disabled = true;
+
+  buttonResizeFwd.onchange = function() {
+    if (resizeFormIsValid()) {
+      buttonResizeFwd.disabled = false;
+    } else {
+      buttonResizeFwd.disabled = true;
+    }
+  };
+
 
   /**
    * Форма загрузки изображения.
