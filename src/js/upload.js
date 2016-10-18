@@ -98,16 +98,7 @@
   }
   };
 
-  var buttonResizeFwd = document.querySelector('#resize-fwd');
-  buttonResizeFwd.disabled = true;
 
-  buttonResizeFwd.onchange = function() {
-    if (resizeFormIsValid()) {
-      buttonResizeFwd.disabled = false;
-    } else {
-      buttonResizeFwd.disabled = true;
-    }
-  };
 
 
   /**
