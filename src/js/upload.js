@@ -85,8 +85,8 @@
     resizeY.min = 0;
     resizeSide.min = 0;
 
-    var sumSizeX = resizeX.value + resizeSide.value;
-    var sumSizeY = resizeY.value + resizeSide.value;
+    var sumSizeX = +resizeX.value + (+resizeSide.value);
+    var sumSizeY = +resizeY.value + (+resizeSide.value);
     buttonFwd.disabled = sumSizeX > currentResizer._image.naturalWidth || sumSizeY > currentResizer._image.naturalHeight;
     return true;
   };
