@@ -74,13 +74,12 @@
 
 
   // Валидации формы кадрирования изображения
+  var resizeX = document.querySelector('#resize-x');
+  var resizeY = document.querySelector('#resize-y');
+  var resizeSide = document.querySelector('#resize-size');
+  var buttonFwd = document.querySelector('#resize-fwd');
 
   var resizeFormIsValid = function() {
-    var resizeX = document.querySelector('#resize-x');
-    var resizeY = document.querySelector('#resize-y');
-    var resizeSide = document.querySelector('#resize-size');
-    var buttonFwd = document.querySelector('#resize-fwd');
-
     resizeX.min = 0;
     resizeY.min = 0;
     resizeSide.min = 0;
