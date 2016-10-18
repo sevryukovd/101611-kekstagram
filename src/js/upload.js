@@ -71,9 +71,40 @@
    * Проверяет, валидны ли данные, в форме кадрирования.
    * @return {boolean}
    */
+
+
+  // Валидации формы кадрирования изображения
+  var resizeX = document.querySelector('#resize-x');
+  var resizeY = document.querySelector('#resize-y');
+  var resizeSide = document.querySelector('#resize-size');
+  var buttonFwd = document.querySelector('#resize-fwd');
+
+
   var resizeFormIsValid = function() {
-    return true;
+    resizeX.min = 0;
+    resizeY.min = 0;
+    resizeSide.min = 0;
+
+    var sumSizeX = +resizeX.value + (+resizeSide.value);
+    var sumSizeY = +resizeY.value + (+resizeSide.value);
+    var checkSizeForm = sumSizeX > currentResizer._image.naturalWidth || sumSizeY > currentResizer._image.naturalHeight;
+    buttonFwd.disabled = checkSizeForm;
+    return checkSizeForm;
   };
+
+
+  resizeX.oninput = function() {
+    resizeFormIsValid();
+  };
+
+  resizeY.oninput = function() {
+    resizeFormIsValid();
+  };
+
+  resizeSide.oninput = function() {
+    resizeFormIsValid();
+  };
+
 
   /**
    * Форма загрузки изображения.
