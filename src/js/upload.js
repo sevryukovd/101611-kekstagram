@@ -73,7 +73,7 @@
    */
 
 
-  // Валидации формы кадрирования изображения
+  // Валидация формы кадрирования изображения
   var resizeX = document.querySelector('#resize-x');
   var resizeY = document.querySelector('#resize-y');
   var resizeSide = document.querySelector('#resize-size');
