@@ -107,6 +107,23 @@
   };
 
 
+  //Cookies
+  var countDaysAfterAdmiralBirthday = function() {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var admiralBirthday = new Date(currentYear, 11, 9);
+    var msPerDay = 24 * 60 * 60 * 1000;
+    if (currentDate < admiralBirthday) {
+      admiralBirthday.setFullYear(currentYear - 1);
+    }
+
+    var cookieTime = Math.ceil((currentDate - admiralBirthday) / msPerDay);
+    return cookieTime;
+  };
+
+
+
+
   /**
    * Форма загрузки изображения.
    * @type {HTMLFormElement}
@@ -237,6 +254,16 @@
 
       resizeForm.classList.add('invisible');
       filterForm.classList.remove('invisible');
+
+    //Установка фильтра
+
+      var setFilter = window.Cookies.get('upload-filter');
+      var checkFilter = document.getElementById('upload-' + setFilter);
+      if(setFilter) {
+        checkFilter.checked = true;
+        filterImage.className = 'filter-image-preview ' + setFilter;
+
+      }
     }
   };
 
@@ -286,11 +313,13 @@
     var selectedFilter = [].filter.call(filterForm['upload-filter'], function(item) {
       return item.checked;
     })[0].value;
-
     // Класс перезаписывается, а не обновляется через classList потому что нужно
     // убрать предыдущий примененный класс. Для этого нужно или запоминать его
     // состояние или просто перезаписывать.
     filterImage.className = 'filter-image-preview ' + filterMap[selectedFilter];
+
+    // Запись кук
+    window.Cookies.set('upload-filter', filterMap[selectedFilter], { expires: countDaysAfterAdmiralBirthday() });
   };
 
   cleanupResizer();
