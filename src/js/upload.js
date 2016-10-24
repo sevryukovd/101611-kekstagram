@@ -117,8 +117,8 @@
       admiralBirthday.setFullYear(currentYear - 1);
     }
 
-    var cookieTime = Math.ceil((currentDate - admiralBirthday) / msPerDay);
-    return cookieTime;
+    return Math.ceil((currentDate - admiralBirthday) / msPerDay);
+
   };
 
 
