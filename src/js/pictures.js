@@ -127,7 +127,7 @@
     var pictureElement = picElement.cloneNode(true);
     pictureElement.querySelector('.picture-comments').textContent = picture.comments;
     pictureElement.querySelector('.picture-likes').textContent = picture.likes;
-    pictureElement.setAttribute('href', picture.url);
+    pictureElement.href = picture.url;
     var backgroundImage = new Image();
 
     backgroundImage.onload = function (event) {
