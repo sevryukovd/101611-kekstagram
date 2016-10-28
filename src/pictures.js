@@ -1,17 +1,5 @@
 'use strict'
 
-// Прячем блок с фильтрами
-
-var filterHidden = document.querySelector('.filter');
-filterHidden.classList.add('hidden');
-
-// Доступ к template
-var template = document.querySelector('template');
-var templateContainer = 'content' in template ? template.content : template;
-
-// Доступ к pictures
-var picturesContainer = document.querySelector('.pictures');
-
 var pictures = [{
   "likes": 40,
   "comments": 12,
@@ -119,3 +107,45 @@ var pictures = [{
   "preview": "photos/26.jpg"
 }];
 
+
+var IMAGE_WIDTH = 182;
+var IMAGE_HEIGHT = 182;
+
+
+var filterHidden = document.querySelector('.filters');
+filterHidden.classList.add('hidden');
+
+var template = document.querySelector('template');
+var templateContainer = 'content' in template ? template.content : template;
+
+var picturesContainer = document.querySelector('.pictures');
+
+
+var getPictureElement = function(picture) {
+  var pictureElement = templateContainer.querySelector('.picture').cloneNode(true);
+  pictureElement.querySelector('.picture-comments').textContent = picture.comments;
+  pictureElement.querySelector('.picture-likes').textContent = picture.likes;
+var backgroundImage = new Image();
+
+  backgroundImage.onload = function(event) {
+    var targetImg = pictureElement.querySelector('img');
+    targetImg.src = event.target.src;
+    targetImg.width = IMAGE_WIDTH;
+    targetImg.height = IMAGE_HEIGHT;
+  };
+backgroundImage.onerror = function() {
+    pictureElement.classList.add('picture-load-failure');
+};
+
+  backgroundImage.src = picture.url;
+  return pictureElement;
+
+};
+
+var renderPictures = function() {
+  pictures.forEach(function(picture) {
+    picturesContainer.appendChild(getPictureElement(picture));
+  });
+  filterHidden.classList.remove('hidden');
+};
+renderPictures();
