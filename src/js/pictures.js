@@ -2,11 +2,11 @@
 
 (function() {
 
-
   var IMAGE_WIDTH = 182;
   var IMAGE_HEIGHT = 182;
   var URL_UPLOAD_PICTURES = 'http://localhost:1507/api/pictures';
   var pictures = [];
+
 
   var load = function(url, callback, callbackName) {
     if (!callbackName) {
@@ -22,8 +22,6 @@
     script.src = url + '?callback=' + callbackName;
     document.body.appendChild(script);
   };
-
-
 
   var filterHidden = document.querySelector('.filters');
   filterHidden.classList.add('hidden');
@@ -64,5 +62,5 @@
   };
 
 
-  load(URL_UPLOAD_PICTURES, renderPictures);
+  load(URL_UPLOAD_PICTURES, renderPictures, 'jsonpCallback');
 })();
