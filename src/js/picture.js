@@ -18,6 +18,7 @@ Picture.prototype = {
   },
 
 
+
   getPictureElement: function(picture) {
     var IMAGE_WIDTH = 182;
     var IMAGE_HEIGHT = 182;
