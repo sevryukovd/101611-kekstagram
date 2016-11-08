@@ -11,9 +11,10 @@ var filterHidden = document.querySelector('.filters');
 var showPictures = (function() {
   filterHidden.classList.add('hidden');
 
-  var renderPictures = function(pictureArray) {
+var renderPictures = function(pictureArray) {
+    var newPicture = new Picture(picture, index);
     pictureArray.forEach(function(picture, index) {
-      picturesContainer.appendChild(new Picture(picture, index).element);
+      picturesContainer.appendChild(newPicture.element);
     });
     galleryObject.setPictures(pictureArray);
 
