@@ -26,4 +26,5 @@ var showPictures = (function() {
   filterHidden.classList.remove('hidden');
 })();
 
+
 module.exports = showPictures;
