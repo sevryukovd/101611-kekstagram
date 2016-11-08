@@ -1,6 +1,6 @@
 'use strict';
 
-var Gallery = require('./gallery');
+var galleryObject = require('./gallery');
 
 var Picture = function(picture, index) {
   this.data = picture;
@@ -8,7 +8,7 @@ var Picture = function(picture, index) {
 
   this.element.onclick = function(evt) {
     evt.preventDefault();
-    Gallery.show(index);
+    galleryObject.show(index);
   };
 };
 

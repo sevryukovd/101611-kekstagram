@@ -1,5 +1,5 @@
 'use strict';
-var Gallery = require('./gallery');
+var galleryObject = require('./gallery');
 var Picture = require('./picture');
 var load = require('./load');
 
@@ -15,7 +15,7 @@ var showPictures = (function() {
     pictureArray.forEach(function(picture, index) {
       picturesContainer.appendChild(new Picture(picture, index).element);
     });
-    Gallery.setPictures(pictureArray);
+    galleryObject.setPictures(pictureArray);
 
   };
 
